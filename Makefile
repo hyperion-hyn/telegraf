@@ -115,6 +115,9 @@ clean:
 docker-image:
 	docker build -f scripts/stretch.docker -t "telegraf:$(COMMIT)" .
 
+docker-image-custom-plugin:
+	docker build -f scripts/alpine-custom-plugin.docker -t "map3/telegraf-custom-plugin-alpine:1.11" .
+
 plugins/parsers/influx/machine.go: plugins/parsers/influx/machine.go.rl
 	ragel -Z -G2 $^ -o $@
 
